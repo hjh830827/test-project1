@@ -1,0 +1,108 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue Sample</title>
+  </head>
+  <body>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <div id="app">
+      <div v-if="type === 'A'">
+        A
+      </div>
+      <div v-else-if="type === 'B'">
+        B
+      </div>
+      <div v-else-if="type === 'C'">
+        C
+      </div>
+      <div v-else>
+        Not A/B/C
+      </div>
+    </div>
+    <script>
+     var vm =  new Vue({
+        el: '#app',
+        data: () => ({
+          type: '',
+          teamList: [
+            {
+              divisionName:'연구소',
+              teamName:null
+            },
+            {
+              divisionName:'null',
+              teamName:'전략마케팅팀'
+            },
+            {
+              divisionName:'경영지원실',
+              teamName:'정보전략팀'
+            },
+            {
+              divisionName:'개발실',
+              teamName:'GDC혁신팀'
+            },
+            {
+              divisionName:'보안사업부',
+              teamName:'보안솔루션팀'
+            },
+            {
+              divisionName:'경영지원실',
+              teamName:'정보전략팀'
+            },
+            {
+              divisionName:'보안사업부',
+              teamName:'보안전략팀'
+            },
+            {
+              divisionName:null,
+              teamName:'정보보호그룹(통합보안)'
+            }
+          ],
+          divisionList: [
+            {
+              divisionName:null,
+              teamList:['전략마케팅팀','정보보호그룹(통합보안)']
+            },
+            {
+              divisionName:'개발실',
+              teamList:['GDC혁신팀']
+            },
+          ]
+        }),
+        mounted(){
+          console.log('==========================')
+          console.log(this.divisionList)
+          let test = this.teamList.reduce(function (acc, obj) {
+            console.log('=============')
+            console.log(acc)
+            console.log(obj)
+            var key = obj['divisionName'];
+            console.log(key)
+            console.log(acc[key])
+            if (!acc[key]) {
+              acc[key] = [];
+            }
+            acc[key].push(obj);
+            return acc;
+          }, {})
+  console.log('-----------------------------------')
+  console.log(test)
+          // const date = '2010-10-20';
+          // moment(date).isBetween('2010-10-19', '2010-10-25'); // true
+          // moment(date).isBetween('2010-10-19', undefined); // true, since moment(undefined) evaluates as moment()
+          // moment(date).isBetween('2010-10-19', '2010-10-25'); // true
+          // moment(date).isBetween('2010-10-25', '2010-10-19'); // false
+          // moment(date).isBetween('2010-01-01', '2012-01-01', 'year'); // false
+          // moment(date).isBetween('2009-12-31', '2012-01-01', 'year'); // true
+          // moment(date).isBetween(date, '2016-12-30', undefined, '()'); //false
+          // moment(date).isBetween(date, '2016-12-30', undefined, '[)'); //true
+          // moment(date).isBetween('2016-01-01', date, undefined, '()'); //false
+          // moment(date).isBetween('2016-01-01', date, undefined, '(]'); //true
+          // moment(date).isBetween(date, date, undefined, '[]'); //true
+          // moment(date).isBetween(date, date, undefined, '(]'); //false
+        }
+      })
+    </script>
+  </body>
+</html>
