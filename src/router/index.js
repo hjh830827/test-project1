@@ -1,50 +1,102 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+import Vue from "vue";
+import VueRouter from "vue-router";
+import Home from "../views/Home.vue";
 
-const Bar = { template: '<div>bar</div>' }
-const Baz = { template: '<div>baz</div>' }
-const Foo = { template: '<div>foo</div>' }
-Vue.use(VueRouter)
+const Bar = { template: "<div>bar</div>" };
+const Baz = { template: "<div>baz</div>" };
+const Foo = { template: "<div>foo</div>" };
+Vue.use(VueRouter);
 
 const routes = [
   {
-    path: '/',
-    name: 'Home',
-    component: Home
+    path: "/",
+    name: "Home",
+    component: Home,
   },
   {
-    path: '/about',
-    name: 'About',
+    path: "/about",
+    name: "About",
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/About.vue"),
   },
   {
-    path: '/phoneNum',
-    name: 'PhoneNum',
+    path: "/phoneNum",
+    name: "PhoneNum",
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/PhoneNum.vue')
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/PhoneNum.vue"),
   },
   {
-    path: '/test',
-    name: 'test',
+    path: "/VtextfieldTest",
+    name: "vtextfieldTest",
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/VtextfieldTest.vue"),
+  },
+  {
+    path: "/slickTest",
+    name: "slickTest",
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/slickTest.vue"),
+  },
+  {
+    path: "/snackbarTest",
+    name: "snackbarTest",
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/snackbarTest.vue"),
+  },
+  {
+    path: "/radioTest",
+    name: "radioTest",
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/radioTest.vue"),
+  },
+  {
+    path: "/tocuhTest",
+    name: "tocuhTest",
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/tocuhTest.vue"),
+  },
+  {
+    path: "/forTest",
+    name: "forTest",
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/forTest.vue"),
+  },
+  {
+    path: "/test",
+    name: "test",
     // component: Home
     components: {
       default: Foo,
       a: Bar,
-      b: Baz
-    }
+      b: Baz,
+    },
   },
-]
+  {
+    path: "/excelTestBySheetJs",
+    name: "ExcelTestBySheetJs",
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/ExcelTestBySheetJs.vue"),
+  },
+];
 
 const router = new VueRouter({
-  mode: 'history',
-  base: process.env.BASE_URL,
-  routes
-})
+  mode: "history",
+  scrollBehavior(to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition;
+    } else {
+      return { x: 0, y: 0 };
+    }
+  },
 
-export default router
+  base: process.env.BASE_URL,
+  routes,
+});
+
+export default router;
