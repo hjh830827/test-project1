@@ -7,7 +7,7 @@
   <body>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <div id="app">
-      <div v-if="type === 'A'">
+      <!-- <div v-if="type === 'A'">
         A
       </div>
       <div v-else-if="type === 'B'">
@@ -18,89 +18,49 @@
       </div>
       <div v-else>
         Not A/B/C
-      </div>
+      </div> -->
     </div>
     <script>
      var vm =  new Vue({
         el: '#app',
         data: () => ({
           type: '',
-          teamList: [
+          beforeList: [
             {
-              divisionName:'연구소',
-              teamName:null
+              type:'color',
+              value:'red',
             },
             {
-              divisionName:'null',
-              teamName:'전략마케팅팀'
+              type:'fruit',
+              value:'apple',
             },
             {
-              divisionName:'경영지원실',
-              teamName:'정보전략팀'
+              type:'color',
+              value:'blue',
             },
             {
-              divisionName:'개발실',
-              teamName:'GDC혁신팀'
-            },
-            {
-              divisionName:'보안사업부',
-              teamName:'보안솔루션팀'
-            },
-            {
-              divisionName:'경영지원실',
-              teamName:'정보전략팀'
-            },
-            {
-              divisionName:'보안사업부',
-              teamName:'보안전략팀'
-            },
-            {
-              divisionName:null,
-              teamName:'정보보호그룹(통합보안)'
+              type:'fruit',
+              value:'banana',
             }
           ],
-          divisionList: [
-            {
-              divisionName:null,
-              teamList:['전략마케팅팀','정보보호그룹(통합보안)']
-            },
-            {
-              divisionName:'개발실',
-              teamList:['GDC혁신팀']
-            },
-          ]
+          afterList : [],
         }),
         mounted(){
-          console.log('=============dev test=================')
-          console.log(this.divisionList)
-          let test = this.teamList.reduce(function (acc, obj) {
-            console.log('=============')
-            console.log(acc)
-            console.log(obj)
-            var key = obj['divisionName'];
-            console.log(key)
-            console.log(acc[key])
+          let reduceObj = this.beforeList.reduce(function (acc, obj) {
+            var key = obj['type'];
             if (!acc[key]) {
               acc[key] = [];
             }
-            acc[key].push(obj);
+            acc[key].push(obj['value']);
             return acc;
           }, {})
-  console.log('-----------------------------------')
-  console.log(test)
-          // const date = '2010-10-20';
-          // moment(date).isBetween('2010-10-19', '2010-10-25'); // true
-          // moment(date).isBetween('2010-10-19', undefined); // true, since moment(undefined) evaluates as moment()
-          // moment(date).isBetween('2010-10-19', '2010-10-25'); // true
-          // moment(date).isBetween('2010-10-25', '2010-10-19'); // false
-          // moment(date).isBetween('2010-01-01', '2012-01-01', 'year'); // false
-          // moment(date).isBetween('2009-12-31', '2012-01-01', 'year'); // true
-          // moment(date).isBetween(date, '2016-12-30', undefined, '()'); //false
-          // moment(date).isBetween(date, '2016-12-30', undefined, '[)'); //true
-          // moment(date).isBetween('2016-01-01', date, undefined, '()'); //false
-          // moment(date).isBetween('2016-01-01', date, undefined, '(]'); //true
-          // moment(date).isBetween(date, date, undefined, '[]'); //true
-          // moment(date).isBetween(date, date, undefined, '(]'); //false
+          console.log(reduceObj)
+
+          const resultObject2 = Object.entries(reduceObj).reduce( (arr, [key, name]) => {
+          arr.push({ type: key, value:name});
+          return arr;
+          }, []);
+          console.log(resultObject2);
         }
       })
     </script>

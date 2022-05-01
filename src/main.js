@@ -6,7 +6,7 @@ import vuetify from './plugins/vuetify';
 
 Vue.config.productionTip = false
 
-Vue.prototype.$test = 'aaa'
+// Vue.prototype.$test = 'aaa'
 
 new Vue({
   router,

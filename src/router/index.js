@@ -83,6 +83,12 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/ExcelTestBySheetJs.vue"),
   },
+  {
+    path: "/checkBoxAllSelect",
+    name: "checkBoxAllSelect",
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/CheckBoxAllSelect.vue"),
+  },
 ];
 
 const router = new VueRouter({
