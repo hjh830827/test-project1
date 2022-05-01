@@ -11,7 +11,7 @@
         v-model="selectList"
         :key="index"
       />
-      <label :for="item" :key="index"> {{ item }}</label>
+      <label :for="item" :key="index + '1'"> {{ item }}</label>
     </template>
     <br />
     <span>check: {{ selectList }}</span>
