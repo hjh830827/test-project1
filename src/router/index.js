@@ -89,6 +89,12 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/CheckBoxAllSelect.vue"),
   },
+  {
+    path: "/filterTest",
+    name: "filterTest",
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/FilterTest.vue"),
+  },
 ];
 
 const router = new VueRouter({
