@@ -50,10 +50,16 @@ const routes = [
       import(/* webpackChunkName: "about" */ "../views/snackbarTest.vue"),
   },
   {
+    path: "/radioClickTest",
+    name: "radioClickTest",
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/RadioClickTest.vue"),
+  },
+  {
     path: "/radioTest",
     name: "radioTest",
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/radioTest.vue"),
+      import(/* webpackChunkName: "about" */ "../views/RadioTest.vue"),
   },
   {
     path: "/tocuhTest",

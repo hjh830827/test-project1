@@ -1,47 +1,56 @@
 <template>
   <div class="text-center">
-    <input type="radio" id="one" name="number" value="One" v-model="picked" @click="radioClick" @change="radioChange">
-    <label for="one">One</label>
-    <br>
-    <input type="radio" id="two" name="number" value="Two" v-model="picked" @click="radioClick" @change="radioChange">
-    <label for="two">Two</label>
-    <br>
-    <span>선택: {{ picked }}</span>
-    <br>
-    <button type="button" @click="reset"> radio data 초기화</button>
+    <div v-for="(item, index) in radioList" :key="index">
+      <input type="radio" :id="item.key" v-model="picked" :value="item" />
+      <label :for="item.key" class="text">{{ item.value }}</label>
+    </div>
+    <br />
+    선택한 key : {{ picked.key }}
+    <br />
+    선택한 value : {{ picked.value }}
   </div>
 </template>
 
 <script>
-  export default {
-    watch:{
-      picked(){
-        console.log('watch : ', this.picked)
-      }
-    },
-    data(){
-      return{
-        picked: ''
-      }
-    },
-    methods:{
-      reset(){
-        console.log('button : ', this.picked)
-        this.picked= ''
-      }
-      ,radioClick(){
-        console.log('radioClick before: ', this.picked)
-        // event.target.checked = false
-        console.log('radioClick after : ', this.picked)
-      }
-      ,radioChange(event){
-        console.log(event)
-        console.log('radioChange before :', this.picked)
-        // if(this.picked == 'Two'){
-        //   this.picked= ''
-        // }
-        console.log('radioChange after :', this.picked)
-      }
-    }
-  }
+export default {
+  data() {
+    return {
+      radioList: [
+        {
+          key: "00",
+          value: "10세미만",
+        },
+        {
+          key: "01",
+          value: "10~19세",
+        },
+        {
+          key: "02",
+          value: "20~29세",
+        },
+        {
+          key: "03",
+          value: "30~39세",
+        },
+        {
+          key: "04",
+          value: "40~49세",
+        },
+        {
+          key: "05",
+          value: "50~59세",
+        },
+        {
+          key: "06",
+          value: "60세이상",
+        },
+      ],
+      picked: "",
+    };
+  },
+  mounted() {
+    // radio data 초기 set
+    this.picked = this.radioList[0];
+  },
+};
 </script>
