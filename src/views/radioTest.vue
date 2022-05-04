@@ -49,7 +49,7 @@ export default {
     };
   },
   mounted() {
-    // radio data 초기 set
+    // radio data 초기 set - commit test
     this.picked = this.radioList[0];
   },
 };
