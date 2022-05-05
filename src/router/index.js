@@ -101,6 +101,12 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/FilterTest.vue"),
   },
+  {
+    path: "/datepickerTest",
+    name: "datepickerTest",
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/DatepickerTest.vue"),
+  },
 ];
 
 const router = new VueRouter({
