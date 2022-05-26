@@ -107,6 +107,12 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/DatepickerTest.vue"),
   },
+  {
+    path: "/scrollTest",
+    name: "scrollTest",
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/ScrollTest.vue"),
+  },
 ];
 
 const router = new VueRouter({

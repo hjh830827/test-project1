@@ -9,7 +9,8 @@
       <router-link to="/checkBoxAllSelect">전체선택</router-link> |
       <router-link to="/filterTest">filter 테스트</router-link> |
       <router-link to="/radioTest">radio 테스트</router-link> |
-      <router-link to="/datepickerTest">datepicker 테스트</router-link>
+      <router-link to="/datepickerTest">datepicker 테스트</router-link> |
+      <router-link to="/scrollTest">scroll 테스트</router-link>
     </div>
     <br /><br />
     <router-view />
