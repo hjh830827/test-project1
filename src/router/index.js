@@ -125,6 +125,18 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/EditorTest.vue"),
   },
+  {
+    path: "/selectBoxTest",
+    name: "selectBoxTest",
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/SelectBoxTest.vue"),
+  },
+  {
+    path: "/momentTest",
+    name: "momentTest",
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/MomentTest.vue"),
+  },
 ];
 
 const router = new VueRouter({
