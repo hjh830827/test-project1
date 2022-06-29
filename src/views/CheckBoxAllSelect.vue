@@ -3,7 +3,7 @@
     수신동의 :
     <input type="checkbox" value="all" v-model="allSelected" />
     <label for="all">전체</label>
-    <template v-for="(item, index) in checkList">
+    <!-- <template v-for="(item, index) in checkList">
       <input
         type="checkbox"
         :id="item"
@@ -12,7 +12,7 @@
         :key="index"
       />
       <label :for="item" :key="index + '1'"> {{ item }}</label>
-    </template>
+    </template> -->
     <br />
     <span>check: {{ selectList }}</span>
   </div>
