@@ -59,7 +59,7 @@ const routes = [
     path: "/radioTest",
     name: "radioTest",
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/RadioTest.vue"),
+      import(/* webpackChunkName: "about" */ "../views/radioTest.vue"),
   },
   {
     path: "/tocuhTest",
@@ -142,6 +142,12 @@ const routes = [
     name: "fileTest",
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/FileTest.vue"),
+  },
+  {
+    path: "/emailTest",
+    name: "emailTest",
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/EmailTest.vue"),
   },
 ];
 
