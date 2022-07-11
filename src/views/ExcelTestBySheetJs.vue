@@ -1,6 +1,8 @@
 <template>
   <div class="text-center">
     <button type="button" @click="excelDown">엑셀다운</button>
+    <br /><br />
+    <input type="file" ref="excelUpload" @change="excelUpload" />
   </div>
 </template>
 
@@ -17,6 +19,35 @@ export default {
     };
   },
   methods: {
+    excelUpload() {
+      const xlsx = require("xlsx");
+      const fileInfo = this.$refs.excelUpload.files[0];
+
+      let reader = new FileReader();
+
+      reader.onload = function() {
+        const fileData = reader.result;
+        const wb = xlsx.read(fileData, { type: "binary" });
+
+        // sheet 개수 반복문
+        // wb.SheetNames.forEach(function(sheetName) {
+        //   const rowObj = xlsx.utils.sheet_to_json(wb.Sheets[sheetName]);
+        //   console.log(JSON.stringify(rowObj));
+        // });
+
+        // sheet1만 사용
+        const toJson = xlsx.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]]);
+        console.log(JSON.stringify(toJson));
+
+        const toTxt = xlsx.utils.sheet_to_txt(wb.Sheets[wb.SheetNames[0]]);
+        console.log(toTxt);
+
+        const toHtml = xlsx.utils.sheet_to_html(wb.Sheets[wb.SheetNames[0]]);
+        console.log(toHtml);
+      };
+
+      reader.readAsBinaryString(fileInfo);
+    },
     async excelDown() {
       const xlsx = require("xlsx");
       // 엑셀 파일 생성

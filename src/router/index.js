@@ -149,6 +149,12 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/EmailTest.vue"),
   },
+  {
+    path: "/agChartTest",
+    name: "agChartTest",
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/AgChartTest.vue"),
+  },
 ];
 
 const router = new VueRouter({
