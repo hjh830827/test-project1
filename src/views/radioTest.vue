@@ -52,5 +52,16 @@ export default {
     // radio data 초기 set - commit test
     this.picked = this.radioList[0];
   },
+  watch: {
+    picked() {
+      console.log("watch : ", this.picked);
+      this.getSearch();
+    },
+  },
+  methods: {
+    getSearch() {
+      console.log("api getSearch!!!");
+    },
+  },
 };
 </script>
